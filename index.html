@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple calculator</title>
+        <meta name="viewport" content="width=divice-width ,initial-scale=1.0"></meta>
+    </head>
+    <body>
+    <div id="container">
+   <div id="calculator">
+   <h3>CASIO</h3>
+<input id="input"type="text" placeholder="Made By vikas" readonly>
+        <button onclick="trash()">C</button>
+        <button onclick="del()">D</button>
+        <button onclick="display('%')">%</button>
+        <button onclick="display('/')">/</button>
+        <button onclick="display('7')">7</button>
+        <button onclick="display('8')">8</button>
+        <button onclick="display('9')">9</button>
+        <button onclick="display('*')">*</button>
+        <button onclick="display('4')">4</button>
+        <button onclick="display('5')">5</button>
+        <button onclick="display('6')">6</button>
+        <button onclick="display('-')">-</button>
+        <button onclick="display('1')">1</button>
+        <button onclick="display('2')">2</button>
+        <button onclick="display('3')">3</button>
+        <button onclick="display('+')">+</button>
+        <button onclick="display('.')">.</button>
+        <button onclick="display('0')">0</button>
+ <button onclick="calculate()" id="qual">=</button>
+        </div>
+        </div>
+<style>
+*{
+    margin:0px;
+    padding:0px;
+}
+#container{
+padding-top:30px;
+    display:flex;
+    justify-content:center;
+    text-align:center;
+}
+#calculator{
+    background-color:white;
+    padding:15px;
+    border-radius:30px;
+    box-shadow:inset 5px 5px 12px white,
+                                        5px 5px 12px black;
+    display:grid;     
+    grid-template-columns:repeat(4,70px);                            
+}
+#input{
+    padding:10px;
+    height:50px;
+    width:260px;
+    grid-column:span 4;
+    text-align:end;
+    margin:auto;
+    font-size:50px;
+    margin-top:40px;
+    margin-bottom:40px;
+    outline:none;
+    border-radius:20px;
+    border:none;
+    box-shadow:inset -5px -5px 12px white,
+    inset 3px 3px 10px black;
+    color:black;
+}
+button{
+    height:50px;
+    width:50px;
+    border-radius:50%;
+    border:none;
+    box-shadow: -5px -5px 15px white,
+                                        5px 5px 15px black;
+    margin:10px;
+    font-size:30px;
+    text-align:center;
+    justify-content:center;
+}
+button:hover{
+    cursor:pointer;
+    background-color:black;
+    color:white;
+    box-shadow: -5px -5px 15px white,
+                                        5px 5px 15px black;
+    transition:0.2s ease-in-out;
+}
+#qual{
+    border-radius:30px;
+    width:130px;
+    height:50px;
+    background-color:blue;
+    color:white;
+}
+h3{
+margin:0px;
+    font-size:30px;
+    font-family:serif;
+}
+body{
+    margin-bottom:100px;
+}
+</style>
+        <script>
+   var screen=document.getElementById("input"); 
+          function display(num){
+                screen.value+=num;
+            }
+            function calculate(){
+          if(screen.value==""){
+                    alert("'Enter values'");
+                }
+                try{
+                screen.value=eval(screen.value);
+                }catch{
+                alert("Error");
+                screen.value=" ";
+                }
+            }
+            function trash(){
+                screen.value=" ";
+            }
+            function del(){
+                screen.value=screen.value.slice(0,-1);
+            }          
+        </script>
+    </body>
+</html>
